@@ -1,0 +1,7 @@
+{
+  "name": "ionic-template-architecture",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
