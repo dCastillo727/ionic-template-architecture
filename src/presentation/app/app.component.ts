@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Device } from '@capacitor/device';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({
