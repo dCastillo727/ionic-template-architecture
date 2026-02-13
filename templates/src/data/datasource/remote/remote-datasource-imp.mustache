@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/core/environments/environment';
-import { RequestService } from '@interface-core/capacitor-request';
+import { CapacitorRequest } from '@interface-core/capacitor-request';
 import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/source/{{#kebabCase}}{{className}}{{/kebabCase}}-remote-datasource';
 import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-entity';
 import { {{#pascalCase}}{{className}}{{/pascalCase}}DTO } from './dto/{{#kebabCase}}{{className}}{{/kebabCase}}';
@@ -12,7 +12,7 @@ export class {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp exte
   private mapper = new DtoToEntityRepositoryMapper();
   private path = `${environment.apiBaseUrl}`;
 
-  constructor(private requestService: RequestService) {
+  constructor(private requestService: CapacitorRequest) {
     super();
   }
 
