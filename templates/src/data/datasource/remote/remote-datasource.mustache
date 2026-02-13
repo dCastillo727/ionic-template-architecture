@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
+import { environment } from 'src/core/environments/environment';
+import { RequestService } from '@interface-core/request.service';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/source/{{#kebabCase}}{{className}}{{/kebabCase}}-remote-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}DTO } from './dto/{{#kebabCase}}{{className}}{{/kebabCase}}';
+import { DtoToEntityRepositoryMapper } from '@data/repository/{{#kebabCase}}{{className}}{{/kebabCase}}/mappers/dto-to-entity.mapper';
+
+@Injectable()
+export class {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp extends {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource {
+  private mapper = new DtoToEntityRepositoryMapper();
+  private path = `${environment.apiBaseUrl}`;
+
+  constructor(private requestService: RequestService) {
+    super();
+  }
+
+  override get{{#pascalCase}}{{className}}{{/pascalCase}}(params: string): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity> {
+    return this.requestService
+      .doRequest<{{#pascalCase}}{{className}}{{/pascalCase}}DTO>({
+        method: 'get',
+        url: `${this.path}/{{#kebabCase}}{{className}}{{/kebabCase}}/${params}`,
+      })
+      .pipe(map(this.mapper.mapTo));
+  }
+}

@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Repository } from '@repositories/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}.repository';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/source/{{#kebabCase}}{{className}}{{/kebabCase}}-local-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/source/{{#kebabCase}}{{className}}{{/kebabCase}}-remote-datasource';
+
+@Injectable()
+export class {{#pascalCase}}{{className}}{{/pascalCase}}ImpRepository
+  extends {{#pascalCase}}{{className}}{{/pascalCase}}Repository {
+
+  constructor(
+    private localDataSource: {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource,
+    private remoteDataSource: {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource
+  ) {
+    super();
+  }
+
+  override get{{#pascalCase}}{{className}}{{/pascalCase}}(
+    params: string
+  ): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity> {
+    return this.remoteDataSource.get{{#pascalCase}}{{className}}{{/pascalCase}}(params);
+  }
+}

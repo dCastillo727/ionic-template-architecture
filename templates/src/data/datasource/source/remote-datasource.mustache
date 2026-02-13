@@ -1,0 +1,8 @@
+import { Observable } from 'rxjs';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-entity';
+
+export abstract class {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource {
+  abstract get{{#pascalCase}}{{className}}{{/pascalCase}}(
+    params: string
+  ): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity>;
+}
