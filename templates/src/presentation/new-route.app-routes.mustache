@@ -1,5 +1,5 @@
   {
     path: '{{viewName}}',
-    loadComponent: () => import('@views/{{viewName}}/{{viewName}}.routes')
+    loadChildren: () => import('@views/{{viewName}}/{{viewName}}.routes')
       .then((m) => m.{{#snakeUpperCase}}{{viewName}}{{/snakeUpperCase}}_ROUTES),
   },
