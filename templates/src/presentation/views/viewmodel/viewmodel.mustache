@@ -1,0 +1,8 @@
+import { Injectable } from '@angular/core';
+import { {{#pascalCase}}{{viewName}}{{/pascalCase}}State, {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewState } from './{{viewName}}.state';
+
+@Injectable()
+export class {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewModel {
+  private readonly state = new {{#pascalCase}}{{viewName}}{{/pascalCase}}State();
+  public readonly viewState: {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewState = this.state;
+}

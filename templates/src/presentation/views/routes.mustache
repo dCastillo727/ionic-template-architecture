@@ -1,0 +1,13 @@
+import { Routes } from '@angular/router';
+import { {{#pascalCase}}{{viewName}}{{/pascalCase}}Page } from './view/{{viewName}}';
+import { {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewModel } from './viewmodel/{{viewName}}.viewmodel';
+
+export const {{#snakeUpperCase}}{{viewName}}{{/snakeUpperCase}}_ROUTES: Routes = [
+  {
+    path: '',
+    providers: [
+      {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewModel,
+    ],
+    component: {{#pascalCase}}{{viewName}}{{/pascalCase}}Page,
+  },
+];

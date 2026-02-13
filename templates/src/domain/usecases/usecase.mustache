@@ -1,0 +1,16 @@
+import { Observable } from 'rxjs';
+import { UseCase } from '@interface-core/use-case';
+import { Injectable } from '@angular/core';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Repository } from '../../repositories/{{className}}/{{className}}.repository';
+
+@Injectable()
+export class Get{{#pascalCase}}{{className}}{{/pascalCase}}UseCase
+implements UseCase<string, {{#pascalCase}}{{className}}{{/pascalCase}}Entity>
+{
+  constructor(private readonly repository: {{#pascalCase}}{{className}}{{/pascalCase}}Repository) {}
+
+  execute(params: string): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity> {
+    return this.repository.get{{#pascalCase}}{{className}}{{/pascalCase}}(params)
+  }
+}

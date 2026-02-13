@@ -1,0 +1,16 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { TranslatePipe } from '@ngx-translate/core';
+import { {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewModel } from '../viewmodel/{{viewName}}.viewmodel';
+
+@Component({
+  selector: 'app-{{viewName}}',
+  templateUrl: './{{viewName}}.html',
+  styleUrls: ['./{{viewName}}.scss'],
+  standalone: true,
+  imports: [IonicModule, TranslatePipe],
+})
+export class {{#pascalCase}}{{viewName}}{{/pascalCase}}Page {
+  private readonly viewModel = inject({{#pascalCase}}{{viewName}}{{/pascalCase}}ViewModel);
+  private readonly viewState = this.viewModel.viewState;
+}

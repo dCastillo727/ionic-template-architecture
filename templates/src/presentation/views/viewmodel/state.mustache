@@ -1,0 +1,8 @@
+import { signal } from '@angular/core';
+import { ViewState } from '@interface-core/view-state';
+
+export type {{#pascalCase}}{{viewName}}{{/pascalCase}}ViewState = ViewState<{{#pascalCase}}{{viewName}}{{/pascalCase}}State>;
+
+export class {{#pascalCase}}{{viewName}}{{/pascalCase}}State {
+  readonly isLoading = signal(false);
+}
