@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CapacitorRequest } from '@interface-core/capacitor-request';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}Repository } from '@repositories/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}.repository';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/source/{{#kebabCase}}{{className}}{{/kebabCase}}-remote-datasource';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/source/{{#kebabCase}}{{className}}{{/kebabCase}}-local-datasource';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}ImpRepository } from '@data/repository/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-implementation.repository';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/remote/{{#kebabCase}}{{className}}{{/kebabCase}}-remote-datasource-imp';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSourceImp } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/local/{{#kebabCase}}{{className}}{{/kebabCase}}-local-datasource-imp';
-import { Get{{#pascalCase}}{{className}}{{/pascalCase}}UseCase } from '@usecases/{{#kebabCase}}{{className}}{{/kebabCase}}/get-{{#kebabCase}}{{className}}{{/kebabCase}}.usecase';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Repository } from '@repositories/{{className}}/{{className}}.repository';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{className}}/source/{{className}}-remote-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource } from '@data/datasource/{{className}}/source/{{className}}-local-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}ImpRepository } from '@data/repository/{{className}}/{{className}}-implementation.repository';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp } from '@data/datasource/{{className}}/remote/{{className}}-remote-datasource-imp';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSourceImp } from '@data/datasource/{{className}}/local/{{className}}-local-datasource-imp';
+import { Get{{#pascalCase}}{{className}}{{/pascalCase}}UseCase } from '@usecases/{{className}}/get-{{className}}.usecase';
 
 @NgModule({
   imports: [CommonModule],

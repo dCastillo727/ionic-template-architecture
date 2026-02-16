@@ -1,6 +1,6 @@
 import { Mapper } from 'src/core/core-interface/mapper';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}DTO } from '@data/datasource/{{#kebabCase}}{{className}}{{/kebabCase}}/remote/dto/{{#kebabCase}}{{className}}{{/kebabCase}}';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}DTO } from '@data/datasource/{{className}}/remote/dto/{{className}}';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
 
 export class DtoToEntityRepositoryMapper extends Mapper<
   {{#pascalCase}}{{className}}{{/pascalCase}}DTO,

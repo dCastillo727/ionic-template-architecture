@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{#kebabCase}}{{className}}{{/kebabCase}}/{{#kebabCase}}{{className}}{{/kebabCase}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
 
 export abstract class {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource {
   abstract get{{#pascalCase}}{{className}}{{/pascalCase}}(
