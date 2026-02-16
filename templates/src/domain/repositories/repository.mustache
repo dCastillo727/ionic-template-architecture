@@ -2,5 +2,5 @@ import { Observable } from 'rxjs';
 import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
 
 export abstract class {{#pascalCase}}{{className}}{{/pascalCase}}Repository {
-abstract get{{#pascalCase}}{{className}}{{/pascalCase}}(params: string): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity>;
+  abstract get{{#pascalCase}}{{className}}{{/pascalCase}}(params: string): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity>;
 }

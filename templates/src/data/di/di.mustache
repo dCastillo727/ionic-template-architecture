@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CapacitorRequest } from '@interface-core/capacitor-request';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Repository } from '@repositories/{{className}}/{{className}}.repository';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{className}}/source/{{className}}-remote-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource } from '@data/datasource/{{className}}/source/{{className}}-local-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}ImpRepository } from '@data/repository/{{className}}/{{className}}-implementation.repository';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp } from '@data/datasource/{{className}}/remote/{{className}}-remote-datasource-imp';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSourceImp } from '@data/datasource/{{className}}/local/{{className}}-local-datasource-imp';
+import { Get{{#pascalCase}}{{className}}{{/pascalCase}}UseCase } from '@usecases/{{className}}/get-{{className}}.usecase';
+
+@NgModule({
+  imports: [CommonModule],
+  providers: [
+    CapacitorRequest,
+    Get{{#pascalCase}}{{className}}{{/pascalCase}}UseCase,
+    { provide: {{#pascalCase}}{{className}}{{/pascalCase}}Repository, useClass: {{#pascalCase}}{{className}}{{/pascalCase}}ImpRepository },
+    { provide: {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource, useClass: {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp },
+    { provide: {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource, useClass: {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSourceImp },
+  ],
+})
+export class {{#pascalCase}}{{className}}{{/pascalCase}}DI {}

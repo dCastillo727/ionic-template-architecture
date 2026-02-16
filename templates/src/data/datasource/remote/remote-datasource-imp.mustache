@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { Observable, map } from 'rxjs';
+import { environment } from 'src/core/environments/environment';
+import { RequestService } from '@interface-core/capacitor-request';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource } from '@data/datasource/{{className}}/source/{{className}}-remote-datasource';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}DTO } from './dto/{{className}}';
+import { DtoToEntityRepositoryMapper } from '@data/repository/{{className}}/mappers/dto-to-entity.mapper';
+
+@Injectable()
+export class {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSourceImp extends {{#pascalCase}}{{className}}{{/pascalCase}}RemoteDataSource {
+  private mapper = new DtoToEntityRepositoryMapper();
+  private path = `${environment.apiBaseUrl}`;
+
+  constructor(private requestService: RequestService) {
+    super();
+  }
+
+  override get{{#pascalCase}}{{className}}{{/pascalCase}}(params: string): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity> {
+    return this.requestService
+      .doRequest<{{#pascalCase}}{{className}}{{/pascalCase}}DTO>({
+        method: 'get',
+        url: `${this.path}/{{className}}/${params}`,
+      })
+      .pipe(map(this.mapper.mapTo));
+  }
+}

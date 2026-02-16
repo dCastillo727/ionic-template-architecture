@@ -1,0 +1,25 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource } from '../source/{{className}}-local-datasource';
+import { StorageSource } from 'src/core/services/storage/source/storage-source.interface';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}DBO } from './dbo/{{className}}';
+import { DboToEntityRepositoryMapper } from '@data/repository/{{className}}/mappers/dbo-to-entity.mapper';
+
+@Injectable()
+export class {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSourceImp extends {{#pascalCase}}{{className}}{{/pascalCase}}LocalDataSource {
+  private mapper = new DboToEntityRepositoryMapper();
+
+  constructor(private storage: StorageSource) {
+    super();
+  }
+
+  override get{{#pascalCase}}{{className}}{{/pascalCase}}(params: string): Observable<{{#pascalCase}}{{className}}{{/pascalCase}}Entity | null> {
+    const cacheKey = `{{className}}_${params}`;
+
+    return this.storage.get<{{#pascalCase}}{{className}}{{/pascalCase}}DBO>(cacheKey).pipe(
+      map((dbo) => (dbo ? this.mapper.mapTo(dbo) : null))
+    );
+  }
+}

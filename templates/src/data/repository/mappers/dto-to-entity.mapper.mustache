@@ -1,0 +1,21 @@
+import { Mapper } from 'src/core/core-interface/mapper';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}DTO } from '@data/datasource/{{className}}/remote/dto/{{className}}';
+import { {{#pascalCase}}{{className}}{{/pascalCase}}Entity } from '@models/{{className}}/{{className}}-entity';
+
+export class DtoToEntityRepositoryMapper extends Mapper<
+  {{#pascalCase}}{{className}}{{/pascalCase}}DTO,
+  {{#pascalCase}}{{className}}{{/pascalCase}}Entity
+> {
+
+  mapTo(param: {{#pascalCase}}{{className}}{{/pascalCase}}DTO): {{#pascalCase}}{{className}}{{/pascalCase}}Entity {
+    return {
+      data: param.data,
+    };
+  }
+
+  mapFrom(param: {{#pascalCase}}{{className}}{{/pascalCase}}Entity): {{#pascalCase}}{{className}}{{/pascalCase}}DTO {
+    return {
+      data: param.data,
+    };
+  }
+}
